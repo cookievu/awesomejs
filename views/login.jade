@@ -1,0 +1,19 @@
+extends layouts/master
+
+block content
+	div(class='login-page')
+		div(id='login' class='login-form')
+			h2(class='title' style='text-align: center') Đăng nhập vào cộng đồng Awesome
+			div(class='field')
+				div(class='control')
+					input(class='input' type='text' placeholder='Email' v-model='email')
+			div(class='field')
+				div(class='control')
+					input(class='input' type='password' placeholder='Mật khẩu' v-model='password')
+			div(class='field')
+				button(type='submit' class='button is-primary is-full' v-bind:class="{ 'is-loading' : loading }" v-on:click='submit') Đăng nhập
+				{{message}}
+
+
+
+
