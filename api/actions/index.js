@@ -1,6 +1,7 @@
+let data = {}
+
 module.exports = (req, res) => {
-	res.render('index', {
-		status: 1,
-		message: 'Hello'
-	})
+	data['user'] = req.user
+
+	res.render('index', data)
 }

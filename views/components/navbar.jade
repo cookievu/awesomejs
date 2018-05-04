@@ -5,9 +5,25 @@ div(class='toolbar')
 				img(src='images/logo.svg' alt='Logo')
 				h2 awesome
 		div(class='bar-right')
-			a(href='/login' class='bar-item login-btn')
-				<i class="fas fa-sign-in-alt"></i>
-				Đăng nhập
-			a(href='/signup' class='bar-item signup-btn')
-				<i class="fas fa-user-plus"></i>
-				Đăng ký
+			if user
+				a(href='/new-post' class='bar-item login-btn')
+					i(class='fas fa-sign-in-alt') &nbsp;Tạo chủ đề
+				span(class='bar-item login-btn avatar')
+					a(href='profile/' + user.id)
+						img(src='images/avatar.svg' alt='Avatar')
+
+					div(class='bar-dropdown' v-click-outside='clickOutside')
+						span(@click='toggleUserDropdown')
+							i(class='fas fa-angle-down')
+						ul(class='bar-dropdown-list' v-if='isUserDropdown')
+							li
+								a(href='/sdasd') line1
+							li
+								a(href='/sdasdfsd') line 2
+							li(class='divider')
+								a(href='/sdadsfsadffsd') line 3
+			else
+				a(href='/login' class='bar-item login-btn')
+					<i class="fas fa-sign-in-alt"></i> Đăng nhập
+				a(href='/signup' class='bar-item signup-btn')
+					<i class="fas fa-user-plus"></i> Đăng ký

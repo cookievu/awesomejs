@@ -1,4 +1,4 @@
-const fs = require('fs')
+               const fs = require('fs')
 const debug = require('debug')(process.env.DEBUG)
 const methods = require('./defines/methods')
 
@@ -9,6 +9,7 @@ module.exports = (app) => {
 	const checkMethod = (method) => methods.find(e => e === method)
 
 	for (let string in webRoutes) {
+		if (string === 'police') continue;
 		let route = {}
 
 		const keyArr = string.split(' ')
@@ -29,10 +30,15 @@ module.exports = (app) => {
 		arrRoutes.push(route)
 	}
 
+	const requirePolice = (policeName) => require('../api/polices/' + policeName + '.js')
+
 	arrRoutes.map(route => {
 		let polices = []
+		if (webRoutes.police && webRoutes.police['*']) {
+			webRoutes.police['*'].map(police => polices.push(requirePolice(police)))
+		}
 		if (route.polices && route.polices.length) {
-			polices = route.polices.map(police => require('../api/polices/' + police + '.js'))
+			route.polices.map(police => polices.push(requirePolice(police)))
 		}
 		app[route.method](route.path, polices, require('../api/actions/' + route.action + '.js'))
 	})

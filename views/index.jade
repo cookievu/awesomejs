@@ -2,12 +2,17 @@ extends layouts/master
 
 block content
 	div(class='container')
-		h1= title
+		if user
+			h1 #{user.name}
+		else
+			h1 hello
 		p Welcome to #{title}
-
+	
 
 		div(class='field')
 			label(class='label') Name
 			div(class='control')
 				input(class='input' type='text' placeholder="Text input")
+
+		div(style="border: 1px solid #e1e1e1")= data
 

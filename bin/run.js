@@ -2,10 +2,10 @@ require('dotenv').config()
 const http = require('http')
 const createError = require('http-errors');
 
-const normalizePort = require('../libs/normalizePort')
+const normalizePort = require('./libs/normalizePort')
 const port = normalizePort(process.env.PORT || 3000)
 
-const { onListening, onError } = require('../libs/runHandler')
+const { onListening, onError } = require('./libs/runHandler')
 const errorHandler = require('../api/responses/errorHandler')
 
 const route = require('./route')
@@ -13,6 +13,8 @@ const local = require('../config/local')
 const log = require('../config/log')
 const static = require('../config/static')
 const view = require('../config/view')
+
+const db = require('./database')
 
 module.exports = (app) => {
 

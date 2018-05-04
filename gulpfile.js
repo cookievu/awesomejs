@@ -20,9 +20,9 @@ gulp.task('compress', () => {
         .pipe(babel({
             presets: ['es2015']
         }))
-		.pipe(concat('app.debug.js'))
+		// .pipe(concat('app.debug.js'))
 		.pipe(gulp.dest('public/js'))
-		.pipe(rename('app.min.js'))
+		// .pipe(rename('app.min.js'))
 		.pipe(uglify())
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('public/js'));

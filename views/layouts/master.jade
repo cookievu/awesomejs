@@ -3,12 +3,14 @@ html
 	head
 		include ../components/head.jade
 	body
-		include ../components/navbar.jade
 
-		block content
-			
-		script(src='/js/vue.min.js')
-		script(src='/js/axios.min.js')
-		script(src='/js/app.min.js')
+		div(id='root' class='root')
+			include ../components/navbar.jade
 
-		block script
+			block content
+				
+			script(src='/js/vue.min.js')
+			script(src='/js/axios.min.js')
+			script(src='/js/app.min.js')
+
+			block script

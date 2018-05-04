@@ -3,7 +3,10 @@ extends layouts/master
 block content
 	div(class='login-page')
 		div(id='login' class='login-form')
-			h2(class='title' style='text-align: center') Đăng nhập vào cộng đồng Awesome
+			h2(class='title' style='text-align: center') Tham gia cộng đồng Awesome
+			div(class='field')
+				div(class='control')
+					input(class='input' type='text' placeholder='Tên của bạn' v-model='first')
 			div(class='field')
 				div(class='control')
 					input(class='input' type='text' placeholder='Email' v-model='email')
@@ -11,7 +14,10 @@ block content
 				div(class='control')
 					input(class='input' type='password' placeholder='Mật khẩu' v-model='password')
 			div(class='field')
-				button(type='submit' class='button is-primary is-full' v-bind:class="{ 'is-loading' : loading }" v-on:click='submit') Đăng nhập
+				button(type='submit' class='button is-primary is-full' v-bind:class="{ 'is-loading' : loading }" v-on:click='submit') Đăng ký
 
 block script
-	script(src='/js/auth/login.min.js')
+	script(src='/js/auth/signup.min.js')
+
+
+

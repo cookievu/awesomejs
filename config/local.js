@@ -1,12 +1,11 @@
 require('dotenv').config()
-const cookieParser = require('cookie-parser')
-const expressSession = require('express-session')
+const session = require('cookie-session')
 
 module.exports = (app) => {
-	app.use(cookieParser())
-	app.use(expressSession({
-	    secret: process.env.SESSION_SACRET,
-	    resave: false,
-	    saveUninitialized: false
+
+	app.use(session({
+		name: 'isadfsdff3fsdf_cs',
+		keys: [process.env.SESSION_SACRET],
+		maxAge: 24 * 60 * 60 * 1000 // 24 hours
 	}))
 }
