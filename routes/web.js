@@ -9,6 +9,10 @@ module.exports = {
 	'post /login': 'auth/loginApi',
 	'get /signup': 'auth/signup',
 	'post /signup': 'auth/signupApi',
-	'get /logout': 'auth/logout'
+	'get /logout': 'auth/logout',
+
+	'get /new-post': 'newPost',
+
+	'get /profile/:userId': 'profile/index'
 
 }

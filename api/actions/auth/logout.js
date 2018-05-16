@@ -1,7 +1,6 @@
 module.exports = (req, res) => {
 	if (req.session.userId) {
-		req.session.userId = undefined
-		return res.redirect('/')
+		delete req.session.userId
 	}
 	res.redirect('/')
 }

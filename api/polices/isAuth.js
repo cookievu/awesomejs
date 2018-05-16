@@ -1,17 +1,16 @@
-module.exports = (req, res, next) => {
-	if (req.session.userId) {
-		User.findById(req.session.userId)
-		.then(user => {
-			if (user) {
+module.exports = async (req, res, next) => {
+	try {
+		if (req.session.userId) {
+			const user = await User.findById(req.session.userId)
+			if (user.dataValues) {
 				req.user = user.dataValues
 				req.session.nowInMinutes = Math.floor(Date.now() / 60e3)
 			}
-			next()
-		})
-		.catch(err => {
-			console.log(err)
-			next()
-		})
-	} else 
-		next()
+			return next()
+		}
+		return next()
+	} catch (err) {
+		res.status(500)
+		res.send(err)
+	}
 }

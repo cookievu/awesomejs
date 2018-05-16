@@ -55,7 +55,7 @@ module.exports = {
         defaultValue: 'member'
       },
       status: {
-        type: Sequelize.ENUM('pending', 'unactive', 'active', 'block', 'removed'),
+        type: Sequelize.ENUM('pending', 'unactive', 'active', 'block', 'remove'),
         defaultValue: 'unactive'
       },
       createdAt: {

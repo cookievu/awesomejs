@@ -1,5 +1,5 @@
 let data = {
-	title: 'Awesome'
+	title: 'Chủ đề mới - Awesome'
 }
 
 module.exports = (req, res) => {

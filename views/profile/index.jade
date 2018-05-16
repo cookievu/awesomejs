@@ -1,0 +1,9 @@
+extends ../layouts/master
+
+block content
+	div(class='container')
+		if profile
+			h1 #{profile.first}
+		p Welcome to #{title}
+	
+

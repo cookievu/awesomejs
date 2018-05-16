@@ -2,5 +2,5 @@ module.exports = (req, res) => {
 	if (req.session.userId) {
 		res.redirect('/')
 	}
-	res.render('signup')
+	res.render('auth/signup')
 }

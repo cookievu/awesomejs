@@ -1,3 +1,6 @@
+const Sequelize = require('sequelize')
+const Op = Sequelize.Op;
+
 module.exports = (req, res) => {
 	const {
 		email,

@@ -1,4 +1,3 @@
-// 'use strict';
 const BcryptService = require('../services/BcryptService')
 
 module.exports = (sequelize, DataTypes) => {
@@ -61,16 +60,15 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 'member'
     },
     status: {
-      type: DataTypes.ENUM('pending', 'unactive', 'active', 'block', 'removed'),
+      type: DataTypes.ENUM('pending', 'unactive', 'active', 'block', 'remove'),
       defaultValue: 'unactive'
     },
   }, {})
   User.associate = (models) => {
-    // associations can be defined here
   }
+
   User.prototype.toJSON = function() {
     const values = Object.assign({}, this.get())
-
     delete values.password
     delete values.position
     return values
